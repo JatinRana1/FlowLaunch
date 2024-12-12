@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import { GlobalContext } from "../context/GlobalContext";
-import 'react-tabulator/lib/styles.css';
-import 'react-tabulator/css/tabulator.min.css';
+// import '../../styles.css';
+import '../../src/css/tabulator.min.css';
 import { ReactTabulator } from "react-tabulator";
 import AddTodo from "../components/AddTodo";
 import axios from "axios";
@@ -85,7 +85,7 @@ const Homepage = () => {
             ) : (
                 <p className="text-center">No tasks available</p>
             )}
-            {/* <AddTodo/> */}
+            <AddTodo/>
         </div>
     )
 }
