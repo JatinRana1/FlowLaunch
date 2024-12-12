@@ -3,6 +3,7 @@ import React, { useContext, useState } from "react";
 import { todoSchema } from '../schema/todoSchema';
 import axios from "axios";
 import { GlobalContext } from "../context/GlobalContext";
+import { toast } from "react-toastify";
 
 const AddTodo = () => {
     const { dispatch } = useContext(GlobalContext);
@@ -19,7 +20,16 @@ const AddTodo = () => {
         validationSchema: todoSchema,
         onSubmit: async (formData) => {
             try {
-                const res = await axios.post('https://my-json-server.typicode.com/JatinRana1/DummyJSON/todos', formData);
+                const updatePromise = axios.post('https://my-json-server.typicode.com/JatinRana1/DummyJSON/todos', formData);
+
+                await toast.promise(updatePromise, {
+                    pending: "Adding task...",
+                    success: "Task added",
+                    error: "Failed to add task",
+                })
+
+                let res = await updatePromise;
+
                 if (res.status === 201) {
                     dispatch({ type: "ADD", payload: res.data });
                     resetForm();
