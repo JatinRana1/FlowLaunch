@@ -42,11 +42,11 @@ const AddTodo = () => {
     });
 
     return (
-        <div>
+        <div className="text-end m-2">
             {/* Button to open the modal */}
             <button
                 type="button"
-                className="btn btn-primary"
+                className="btn btn-sm btn-primary"
                 onClick={() => setIsModalOpen(true)}
             >
                 Add Todo
@@ -54,7 +54,11 @@ const AddTodo = () => {
 
             {/* Modal */}
             {isModalOpen && (
-                <div id="addTodo" className="modal fade show" style={{ display: 'block' }}>
+                <div id="addTodo" className="modal fade show text-start" 
+                    style={{ 
+                            display: 'block',
+                            backgroundColor: 'rgba(0, 0, 0, 0.5)',
+                        }}>
                     <div className="modal-dialog">
                         <div className="modal-content">
                             <form onSubmit={handleSubmit}>

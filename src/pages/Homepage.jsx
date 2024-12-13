@@ -100,7 +100,6 @@ const Homepage = () => {
             <AddTodo/>
             {todos?.length > 0 ? (
                     <ReactTabulator
-                        className=""
                         data={todos}
                         columns={columns}
                         options={options}
